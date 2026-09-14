@@ -220,7 +220,7 @@ CB 上 FID 比最强对手低 **1.7**（相对 DoodleFormer 17.48），GD 高 **
 
 ![[图/VQ-SGen/fig5.png]]
 
-Fig. 5：消融里形状码本规模（$2048×512$ 至 $8192×512$）对**单笔重建**的影响；码本越大断笔与模糊越少，极大形变仍可能盖不住。
+Fig. 5：单笔重建。从上到下是 Input、w/o VQ、$2048 \times 512$、$4096 \times 512$、$4096 \times 1024$。论文还有 $8192 \times 512$ 一行，这张裁图没收到。码本越大断笔与糊越少；极大形变仍可能盖不住。
 
 ### 4.3 用户研究
 
@@ -234,7 +234,7 @@ Fig. 6：五道偏好题（a）–（e）上「本文胜出比例」；深蓝对
 
 ![[图/VQ-SGen/fig8.png]]
 
-Fig. 8：形状码本 $D_s$ 的 UMAP；外围簇对应 Beak、Eye、Tail、Wing、Leg 等典型笔画，中心大簇混有 Head、Body——**未加语义监督**仍呈语义聚类。
+Fig. 8：形状码本 $D_s$ 的 UMAP。裁图上能看清 Head、Wing、Leg、Body。正文写外围还有 Beak、Eye、Tail，中心混 Head、Body。未加语义监督，仍呈语义聚类。
 
 **码空间探索。** 对形状码本 $D_s$ 做 UMAP，可见 Beak、Eye、Tail、Wing、Leg 等簇，中心混有 Head、Body，利于在压缩空间里按语义采样。
 

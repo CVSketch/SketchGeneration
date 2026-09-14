@@ -45,8 +45,8 @@ status: 要点
 - Fig. 1：右栏 (a) 均匀 $k \times k$ 分块测试 vs (b) 动态矩形、裁剪出笔、贴回迭代。图在 [[Stroke-based-Neural-Painting-译文#1 引言]]。
 - Fig. 2：3000 笔触悉尼歌剧院；三基线在块边界断笔/缺笔，Ours 无网格缝。图在 [[Stroke-based-Neural-Painting-译文#1 引言]]。
 - Fig. 3：合成器 + 画家 + 渲染器总图；$I,C_t \to r_t \to s_t \to C_{t+1}$，$T$ 步。图在 [[Stroke-based-Neural-Painting-译文#3.1 概述]]。
-- Fig. 4：200–5000 笔触、两场景×八方法定性大网格（整图一张）。图在 [[Stroke-based-Neural-Painting-译文#4.3 图像到绘画（重建）]]。
-- Table 1：ImageNet / CelebA-HQ 定量对比。图在 [[Stroke-based-Neural-Painting-译文#4.3 图像到绘画（重建）]]。
+- Fig. 4：笔数档是 $200$ / $1000$ / $3000$ / $5000$（这张图没有 $500$ 那一行），两场景 × 八方法定性大网格（整图一张）。图在 [[Stroke-based-Neural-Painting-译文#4.3 图像到绘画（重建）]]。
+- Table 1：ImageNet / CelebA-HQ 定量对比。档是 $200$ / $500$ / $1000$ / $3000$ / $5000$ 笔，不是构图、结构、排线、收细。图在 [[Stroke-based-Neural-Painting-译文#4.3 图像到绘画（重建）]]。
 - Fig. 5：1000 / 2000 笔触风格迁移六组；Ours vs [30]、[17]。图在 [[Stroke-based-Neural-Painting-译文#4.4 笔触式风格迁移]]。
 - Fig. 6：合成器/画家消融八格；(c) 均匀分块边界伪影，(e) 无对抗损失重复粗笔。图在 [[Stroke-based-Neural-Painting-译文#4.5 消融实验]]。
 - Table 2：ImageNet 消融数值（1000 / 5000 笔触）。图在 [[Stroke-based-Neural-Painting-译文#4.5 消融实验]]。

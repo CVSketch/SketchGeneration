@@ -7,6 +7,7 @@ venue: arXiv 2021（后常被顶会当基线）
 ccf:
 arxiv: "2106.14843"
 pdf: "[[CLIPDraw.pdf]]"
+code: https://colab.research.google.com/github/kvfrans/clipdraw/blob/main/clipdraw.ipynb
 tags:
   - 参考文献
   - 素描生成

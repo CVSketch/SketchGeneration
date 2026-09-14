@@ -5,7 +5,7 @@ source: "[[Content-Masked-Loss]]"
 translation: "[[Content-Masked-Loss-译文]]"
 tags:
   - 要点
-  - 论文
+  - 参考文献
 status: 要点
 ---
 
@@ -42,7 +42,7 @@ status: 要点
 - 机械臂实验里，目标图经 k-means 得到 10 色，再人工调色。单刷、可水洗，过程全自动。详见 [[Content-Masked-Loss-译文#1 引言]]。
 - 笔长取画布宽度的 5%。最大笔长为半幅画布，经验来自 20 cm 纸面试画。详见 [[Content-Masked-Loss-译文#3.1 强化学习画家模型（Reinforcement Learning Painter Model）]]。
 - Fig. 6：整图 125 笔，再加 25 个 $1/25$ 子块，每块各 125 笔。详见 [[Content-Masked-Loss-译文#4.1 笔约束与基线画质]]。
-- VGG-16 有 13 个卷积层和 5 个池化层。前 29 层都能做掩码。后续固定第 17 层。详见 [[Content-Masked-Loss-译文#4.3 Content Masked 奖励与 VGG 层选择]]。
+- VGG-16 有 13 个卷积层（各带激活）和 5 个池化层，一共 31 层都能做掩码。Fig. 8 画的是前 29 层。后续固定第 17 层。详见 [[Content-Masked-Loss-译文#4.3 Content Masked 奖励与 VGG 层选择]]。
 - CelebA 留出 2000 张肖像，做 5 折交叉验证。详见 [[Content-Masked-Loss-译文#4.4 最终绘画质量]]。
 - Table 1 的 [[FID]] / IS：GAN 为 $240.05 \pm 0.43$ / $3.05 \pm 0.08$；$L_2$ 为 $241.02 \pm 0.24$ / $3.05 \pm 0.14$；CM + $L_2$ 为 $242.67 \pm 0.24$ / $3.01 \pm 0.04$；$L_1^*$ 为 $241.58 \pm 0.14$ / $3.45 \pm 0.09$；CM + $L_1^*$ 为 $243.13 \pm 0.20$ / $3.47 \pm 0.05$。没有一种损失在两项上全面最好。详见 [[Content-Masked-Loss-译文#4.4 最终绘画质量]]。
 - FaceNet 对 2000 张 hold-out 肖像逐笔检测。Content Masking 提高 50–200 笔区间的人脸检出率。CM + $L_1^*$ 最高。200 笔以内，检测和人评结论一致。详见 [[Content-Masked-Loss-译文#4.5 类人规划（Human-Like Planning）]]。
@@ -50,15 +50,15 @@ status: 要点
 
 ## 关键图
 
-- Fig. 1：Baseline 与 CM + $L_1^*$ 在 10–750 笔下的中间成画对比；Ours 更早出现可辨五官。图在 [[Content-Masked-Loss-译文#1 引言]]。
+- Fig. 1：Baseline 与 CM + $L_1^*$ 对比。列是 10、30、100、300、750 笔和目标图。Ours 更早出现可辨五官。人评用的是 10、30、100、200、750 笔，和这张列不完全一样。图在 [[Content-Masked-Loss-译文#1 引言]]。
 - Fig. 2：目标图 → Neural Renderer → 机械臂实画四联；TinkerKit 臂、k-means 十色。图在 [[Content-Masked-Loss-译文#1 引言]]。
 - Fig. 3：(a) Huang et al. 无笔约束；(b) 本文白底固定笔宽/笔长基线，同笔数下过程更碎、终稿保真更低。图在 [[Content-Masked-Loss-译文#2 相关工作]]。
 - Fig. 4：式 (1)–(7) 汇总即时奖励与各损失（GAN、$L_2$、Content Loss、CM + $L_2$、$L_1^*$、CM + $L_1^*$）。图在 [[Content-Masked-Loss-译文#3.2 奖励函数（Reward Functions）]]。
 - Fig. 5：Predicted / Target / Mask 三联，掩码来自目标图 VGG 特征。图在 [[Content-Masked-Loss-译文#3.2 奖励函数（Reward Functions）]]。
 - Fig. 6：目标与 (a) Huang 原模型、(b) 约束基线；整图 125 笔再加 25 子块各 125 笔。图在 [[Content-Masked-Loss-译文#4.1 笔约束与基线画质]]。
-- Fig. 7：25/100/5000 笔成画及对应 VGG 前 17 层特征；笔少时特征与照片目标仍差很远。图在 [[Content-Masked-Loss-译文#4.2 Content Loss 奖励]]。
+- Fig. 7：上行左三为模型成画，右为目标照片；下行是各图用 VGG 前 17 层抽出的特征。成画已经很像目标时，特征和照片目标仍差很远。原文没有给这三张成画的笔数。图在 [[Content-Masked-Loss-译文#4.2 Content Loss 奖励]]。
 - Fig. 8：VGG-16 第 0–28 层特征可视化；浅层偏边缘，深层偏眼嘴。图在 [[Content-Masked-Loss-译文#4.3 Content Masked 奖励与 VGG 层选择]]。
-- Fig. 9：不同 VGG 层做掩码时，5–200 笔中间过程对比；深层掩码更像人。图在 [[Content-Masked-Loss-译文#4.3 Content Masked 奖励与 VGG 层选择]]。
+- Fig. 9：不同 VGG 层做掩码时，5、20、50、100、200 笔的中间过程。行是第 2、8、12、17、22、31 层。深层更盯五官，不是课堂四阶段。图在 [[Content-Masked-Loss-译文#4.3 Content Masked 奖励与 VGG 层选择]]。
 - Fig. 10：五组损失在 10–750 笔的过程格；CM 两行更早出现脸形，不是课堂四阶段。图在 [[Content-Masked-Loss-译文#4.4 最终绘画质量]]。
 - Table 1：五组损失的 FID / IS；无一项两项全胜，说明掩码未明显伤终稿。图在 [[Content-Masked-Loss-译文#4.4 最终绘画质量]]。
 - Fig. 11：FaceNet 检出比例随笔数；50–200 笔 CM + $L_1^*$ 最高。图在 [[Content-Masked-Loss-译文#4.5 类人规划（Human-Like Planning）]]。
@@ -72,5 +72,5 @@ status: 要点
 - 可借鉴的是损失设计，不是课堂教案。Content Masked Loss 把「哪里对认出主体重要」写成位置权重，乘在像素差上。本课题若只学「先画五官」，仍然只是贴原图，学不到线、结构和排线。详见 [[Content-Masked-Loss-译文#3.2 奖励函数（Reward Functions）]]。
 - Table 1 的 [[FID]] 和 IS 只说明最后一张味道差不多。过程好不好，作者另用中间笔数的 FaceNet 检出和人排序来评。本课题也不能只报 [[FID]]。详见 [[Content-Masked-Loss-译文#4.4 最终绘画质量]]。
 - 人评问的是「哪张最像脸」，看的是 10 到 750 笔的中间画布。这是主体可辨，不是阶段分类准不准，也不是一次只改一块。详见 [[Content-Masked-Loss-译文#4.5 类人规划（Human-Like Planning）]]。
-- 谁在引：[[ProcessPainter]]。ProcessPainter 做油画过程扩散，这篇做[[强化学习]]油画笔序。两边都不是线稿课堂上的构图到收细。详见 [[Content-Masked-Loss-译文#5 结论与未来工作（Conclusion and Future Work）]]。
+- 谁在引：[[ProcessPainter]]。ProcessPainter 在相关工作里把这篇写成强化学习笔画渲染的一条，训练用的是扩散和 8 帧，没有用 Content Masked Loss。两边都不是线稿课堂上的构图到收细。详见 [[Content-Masked-Loss-译文#5 结论与未来工作（Conclusion and Future Work）]]。
 - 相对采集人类笔迹，这是更省数据的类人规划手段。开题可以先做到「主体更早能认出来」。这也是上限：学不到人按课堂阶段改线、一次一块区域的画法。详见 [[Content-Masked-Loss-译文#5 结论与未来工作（Conclusion and Future Work）]]。

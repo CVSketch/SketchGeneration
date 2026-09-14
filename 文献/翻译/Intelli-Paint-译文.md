@@ -1,7 +1,8 @@
 ---
-title: "Intelli-Paint: Towards Developing Human-like Painting Agents"
+title: "Intelli-Paint: Towards Developing More Human-Intelligible Painting Agents"
 short: Intelli-Paint
 source: "[[Intelli-Paint]]"
+pdf: "[[Intelli-Paint.pdf]]"
 tags:
   - 译文
   - 全文
@@ -18,6 +19,7 @@ status: 全文
 > 后文 [[ProcessPainter]] 把它当作 Image-to-Painting-Process 的笔画渲染对照之一；本文输出的是**矢量笔触序列 + 可微渲染**，不是 8 帧 RGB 关键帧视频。
 > **先背景、后前景**是场景分层作画习惯，不是素描课里的构图—结构—排线—收细四阶段。
 > 正文 Fig. 1–4 与表 1–2 已裁在 `附件/图/Intelli-Paint/`；公式、表号跟原文。
+> 库内 PDF 是 arXiv v1，首页标题作 *Human-like Painting Agents*。正式 ECCV 2022 题是 *More Human-Intelligible Painting Agents*。译文按库内 PDF 写，不另译会议改稿。
 
 ## 摘要
 
@@ -222,9 +224,9 @@ $r_{\mathrm{gbp}}$ 来自 Singh 等 Semantic-RL 的 guided backprop 聚焦奖励
 
 ![[图/Intelli-Paint/fig3.png]]
 
-Fig. 3：各方法在约 300 笔预算下的成图对比（车、小屋、鸟、山村四例）；本文在细结构处更完整。
+Fig. 3：各方法在约 300 笔预算下的成图对比（车、湖边小屋、双鹅、山村四例）；本文在细结构处更完整。
 
-**定性（Fig. 3）。** 每幅约 **300** 笔（Paint Transformer、Optim 因网格形式分别约 **360**、**330** 笔）。本文在车、小屋、鸟等**细结构**上更完整；对手常缺乏「把有限笔触分到该分的地方」的机制。Paint Transformer 推理快，但**笔触很少时**往往不如 Optim。
+**定性（Fig. 3）。** 每幅约 **300** 笔（Paint Transformer、Optim 因网格形式分别约 **360**、**330** 笔）。本文在车、小屋、双鹅等**细结构**上更完整；对手常缺乏「把有限笔触分到该分的地方」的机制。Paint Transformer 推理快，但**笔触很少时**往往不如 Optim。
 
 ![[图/Intelli-Paint/table1.png]]
 

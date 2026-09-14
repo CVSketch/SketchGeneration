@@ -39,7 +39,7 @@ status: 全文
 
 ![[图/CLIPascene/fig2.png]]
 
-Fig. 2：单主体（灯塔）、多物体（猫与花）、前景加背景都复杂（街景）三档场景复杂度。
+Fig. 2：单主体（灯塔）、多物体（猫与花瓶）、前景加背景都复杂（街景）三档场景复杂度。
 
 ![[图/CLIPascene/fig3.png]]
 
@@ -153,7 +153,7 @@ Fig. 8：$L_{\mathrm{sparse}}$ 降、$L_{\mathrm{CLIP}}$ 升——线越疏，�
 
 ![[图/CLIPascene/fig9.png]]
 
-Fig. 9：上排相邻档平滑变疏；下排中间两档跳变；下方散点图对应两种 $L_{\mathrm{sparse}}$–$L_{\mathrm{CLIP}}$ 轨迹。
+Fig. 9：上排相邻档平滑变疏；下排第 2、3 张之间跳变；下方散点对应两种 $L_{\mathrm{sparse}}$–$L_{\mathrm{CLIP}}$ 轨迹，每个点是一张简笔。
 
 **平滑简化：** $L_{\mathrm{sparse}}$ 与 $L_{\mathrm{CLIP}}$ 存在权衡（Fig. 8）。为感知上逐级变疏、避免相邻档「跳变」（Fig. 9），令两者关系近似**指数型**；用递归 $f(j)=f(j-1)/2$，按各忠实度档的 $L_{\mathrm{CLIP}}$ 强度采样步长得到 $\{r_k^2,\ldots,r_k^m\}$（与 Weber-Fechner 感知规律一致，详见附录）。
 
@@ -171,7 +171,7 @@ Fig. 10：对 $S_k$ 按 $r_k^j$ 迭代微调 MLP<sub>loc</sub>（蓝）与 MLP<s
 
 ![[图/CLIPascene/fig11.png]]
 
-Fig. 11：右上 U²-Net + LaMa 分前景/背景；左列不拆分易糊主体；下排 Illustrator 改笔刷；右下可拼不同抽象档。
+Fig. 11：右上拆出前景和背景；左列不拆分时主体和背景容易糊在一起；下排是改笔刷后的编辑结果。
 
 整图简笔对复杂场景易 artifact：主体特征被夸大或与背景「糊」在一起（Fig. 11）。流程：
 
@@ -179,7 +179,7 @@ Fig. 11：右上 U²-Net + LaMa 分前景/背景；左列不拆分易糊主体�
 2. **LaMa** [41] 补全背景缺失区；
 3. 对**前景、背景分别**跑双轴抽象，再**合并对应档位**的笔画（矢量直接叠加）。
 
-前景额外在 $\ell_4$ 上算 $L_{\mathrm{CLIP}}$，保几何与细部。用户可导出分块矩阵与掩码，在 Illustrator 等里改笔刷、或把不同抽象档的前景/背景拼成新效果（Fig. 11 下排、Fig. 36）。
+前景额外在 $\ell_4$ 上算 $L_{\mathrm{CLIP}}$，保几何与细部。用户可导出分块矩阵与掩码。改笔刷见 Fig. 11 下排；不同抽象档的前景、背景拼法见 Fig. 36。
 
 ## 4 实验
 
@@ -225,7 +225,7 @@ Table 1：输入 XDoG 边缘与简笔的 MS-SSIM；本文 4×4 子矩阵沿列�
 
 | 简洁度 ↓ / 忠实度 → | 档 1 | 档 2 | 档 3 | 档 4 |
 | :--- | ---: | ---: | ---: | ---: |
-| 1 | 0.39 | 0.37 | 0.36 | 0.34 |
+| 1 | 0.39 | 0.23 | 0.22 | 0.17 |
 | 2 | 0.37 | 0.23 | 0.21 | 0.19 |
 | 3 | 0.36 | 0.22 | 0.20 | 0.18 |
 | 4 | 0.34 | 0.22 | 0.18 | 0.14 |
@@ -343,11 +343,11 @@ Fig. 31–35：多张 4×4 矩阵（列 = 忠实度 precise→loose，行 = 简�
 | 3 Method | 3 |
 | 3.1 Training Scheme · Fig. 7 | 4 |
 | 3.2 Fidelity Axis | 4 |
-| 3.3 Simplicity Axis · Fig. 8–9 | 4–5 |
-| 3.4 Decomposing the Scene · Fig. 10–11 | 6 |
+| 3.3 Simplicity Axis · Fig. 8–10 | 4–6 |
+| 3.4 Decomposing the Scene · Fig. 11 | 6 |
 | 4 Results | 6 |
-| 4.1 Qualitative Evaluation · Fig. 12–13 | 6–7 |
-| 4.2 Comparison with Existing Methods · Fig. 14 | 7–8 |
+| 4.1 Qualitative Evaluation · Fig. 12 | 6–7 |
+| 4.2 Comparison with Existing Methods · Fig. 13–14 | 7–8 |
 | 4.3 Quantitative Evaluation · Table 1–2 | 8 |
 | 5 Conclusions | 9 |
 | References | 9–11 |

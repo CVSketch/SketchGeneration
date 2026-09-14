@@ -60,10 +60,10 @@ status: 要点
 - 表 1：CB/CC 上 FID、GD、CS、SDS 对比；本文 FID/GD 最优。图在 [[VQ-SGen-译文#4.1 对比实验]]。
 - Fig. 4：两数据集、四方法终稿草图大网格（一格一鸟/兽，整图一张位图）。图在 [[VQ-SGen-译文#4.1 对比实验]]。
 - 表 2：码本规模与 w/o VQ、w/o Decouple、w/o $T^l$ 消融。图在 [[VQ-SGen-译文#4.2 消融实验]]。
-- Fig. 5：形状码本 $2048 \times 512$–$8192 \times 512$ 的单笔重建行；码本越大越清晰。图在 [[VQ-SGen-译文#4.2 消融实验]]。
+- Fig. 5：单笔重建行，从上到下是 Input、w/o VQ、$2048 \times 512$、$4096 \times 512$、$4096 \times 1024$。论文还有 $8192 \times 512$ 一行，这张裁图没收到。码本越大断笔与糊越少。图在 [[VQ-SGen-译文#4.2 消融实验]]。
 - Fig. 6：用户研究五题柱状图；多数题本文胜 DoodleFormer。图在 [[VQ-SGen-译文#4.3 用户研究]]。
 - Fig. 7：（a）QuickDraw 类标签多样草图；（b）CLIP 文本条件；（c）首笔补全 vs 基线。图在 [[VQ-SGen-译文#5 讨论与应用]]。
-- Fig. 8：$D_s$ 形状码 UMAP + 典型笔画框；外围 Beak/Eye/Tail/Wing/Leg，中心 Head/Body。图在 [[VQ-SGen-译文#5 讨论与应用]]。
+- Fig. 8：$D_s$ 形状码 UMAP。裁图上能看清 Head、Wing、Leg、Body；正文写外围还有 Beak、Eye、Tail，中心混 Head、Body。图在 [[VQ-SGen-译文#5 讨论与应用]]。
 
 ## 对本课题
 

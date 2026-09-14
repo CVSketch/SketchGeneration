@@ -7,6 +7,7 @@ venue: ECCV 2022
 ccf: A
 arxiv: "2112.03258"
 pdf: "[[DoodleFormer.pdf]]"
+code: https://github.com/ankanbhunia/doodleformer
 project: https://ankanbhunia.github.io/doodleformer/
 tags:
   - 参考文献
@@ -23,3 +24,5 @@ status: 已译
 ## 一句话
 
 先框出身体各部分，再往框里填细节，生成创意简笔。
+
+对着 [[任务定义]]：输出是 $128 \times 128$ 栅格终稿，属于成品创意简笔。[[StrokeFusion]] 在引，把它当栅格对照。PL-Net / PS-Net 是空间上先框后填，不是构图、结构、排线、收细。

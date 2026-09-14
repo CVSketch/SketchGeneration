@@ -47,7 +47,7 @@ status: 要点
 
 ## 关键图
 
-- Fig. 1：上排四种笔刷（油画、马克笔、水彩等）照片转绘画；下排输入→成画→风格迁移（只迁颜色 / 迁颜色与纹理）。图在 [[Stylized-Neural-Painting-译文#1 引言]]。
+- Fig. 1：上排四张成画，从左到右是油画笔、油画笔、马克笔、水彩；下排输入→成画→风格迁移（只迁颜色 / 迁颜色与纹理）。色块胶带在 Fig. 8(d)，不在 Fig. 1。图在 [[Stylized-Neural-Painting-译文#1 引言]]。
 - Fig. 2：空白画布 $h_0$ 起逐步软混合叠加笔触，最终 $h_T$ 与参考 $\hat{h}$ 算损失并反传优化参数 $x_t$；$t$ 是优化步。图在 [[Stylized-Neural-Painting-译文#3.1 概述]]。
 - Fig. 3：双通路渲染——着色 $G_s$ 读颜色+形状，栅格化 $G_r$ 只读形状，相乘得前景 $s$ 与 alpha $\alpha$。图在 [[Stylized-Neural-Painting-译文#3.2 解耦的神经渲染]]。
 - Fig. 4：两方块不重叠时像素 $\ell_1$ 对位移 $s$ 梯度为 0；传输（W 距离）梯度仍非零。图在 [[Stylized-Neural-Painting-译文#3.3 像素相似度与零梯度问题]]。
@@ -68,7 +68,7 @@ status: 要点
 - 本课题要输出有顺序、有阶段、可中断的素描过程，不是只出最后一张更好看的图。本文最后一张像画；中间 $h_t$ 是优化步，只要损失下降即可，不必像真人课堂上的起稿。详见 [[Stylized-Neural-Painting-译文#3.1 概述]]。
 - [[Inverse-Painting]] 和 [[ProcessPainter]] 在笔画渲染基线里常拿本文当对照。ProcessPainter 造伪过程时，也会用本文生成过程帧。能当基线，是因为最后一张像画、输出是矢量笔触。中间步仍是优化轨迹。详见 [[Stylized-Neural-Painting-译文#摘要]]。
 - Fig. 7 的逐笔结果是损失驱动的由粗到细：先抓住物体整体，再补细部。这不等于人类固定的教学顺序。详见 [[Stylized-Neural-Painting-译文#4.1 风格化绘画生成]]。
-- 和 [[Learning-to-Paint]] 动机相近，都追求笔触式写实绘画。对方用强化学习出笔，本文用参数搜索。两边都没有真人笔序当监督。详见 [[Stylized-Neural-Painting-译文#2 相关工作]]。
+- 原文相关工作把 [36] 写成 “Learning to Paint”。[36] 其实是 [[Learning-to-Sketch-DQN]]。Fig. 10 对比的才是 Huang 等的 [[Learning-to-Paint]] [11]。两边都追求笔触式写实绘画：对方用强化学习出笔，本文用参数搜索。都没有真人笔序当监督。详见 [[Stylized-Neural-Painting-译文#2 相关工作]]。
 - 像素损失和传输损失都在缩小画布和照片的差。这种损失不能当过程主损失。详见 [[Stylized-Neural-Painting-译文#3.4 笔触搜索的最优传输]]。
 - 渐进分块 $m \times m$ 是为了补细节的搜索策略，不是构图、结构、排线这类课堂阶段。详见 [[Stylized-Neural-Painting-译文#3.6 实现细节]]。
 - 输出是矢量笔触，可在任意分辨率重渲染。这是成品绘画，不是可擦的线、结构和排线。本课题若对标这篇，贡献应写在课堂阶段上，不要只报最后一张像不像画。详见 [[Stylized-Neural-Painting-译文#5 结论]]。

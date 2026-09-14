@@ -18,7 +18,7 @@ status: 要点
 
 ## 关键图
 
-- Fig. 1：三任务示例——(a) 潜空间创意鸟、(b) 文本控形、(c) 起稿补全。图在 [[DoodleFormer-译文#1 引言]]。
+- Fig. 1：三任务示例——(a) 随机初始笔画出创意鸟、(b) 文本控形、(c) 不完整简笔补全。图在 [[DoodleFormer-译文#1 引言]]。
 - Fig. 2：同一初始笔画下 DoodlerGAN 与 DoodleFormer 在鸟/生物上的对比；后者拓扑更稳。图在 [[DoodleFormer-译文#1 引言]]。
 - Fig. 3：**PL-Net + PS-Net** 方法总图：先 GMM 出部件框，再 PS-Net 栅格成图；空间上由粗到细，不是课堂阶段。图在 [[DoodleFormer-译文#整体框架]]。
 - Fig. 4：从单阶段到 +GAT、+GMM 的消融视觉；姿态与尺寸更散。图在 [[DoodleFormer-译文#整体框架]]。
@@ -78,7 +78,7 @@ status: 要点
 - [[StrokeFusion]] 把这篇当栅格创意简笔对照：两阶段、部件级，输出是像素简笔，不是可编辑矢量。对照时应看部件框、GAT 和 GMM，不要把 PL/PS 读成绘画阶段扩散。详见 [[DoodleFormer-译文#3.2 Part Sketcher Network（PS-Net）]]。
 - 补充图并排展示粗框和最终简笔。强调先 holistic 粗结构，再填细节。不要读成课堂示范的先后阶段。详见 [[DoodleFormer-译文#1 由粗到细的生成过程（Supp. Fig. 1）]]。
 - FID、GD、CS、SDS 都评成品分布。CS 高也可能只是画得很典型。过程任务还要另报阶段和人看像不像示范。详见 [[DoodleFormer-译文#4.1 定量与定性对比]]。
-- 可借鉴：大形阶段先落部件框，再在框里填线。框管「放哪」，线管「画形」。详见 [[DoodleFormer-译文#3.1 Part Locator Network（PL-Net）]]。
+- 可借鉴：先落部件框，再在框里填线。框管「放哪」，线管「画形」。不要把 PL-Net 叫成课堂阶段。详见 [[DoodleFormer-译文#3.1 Part Locator Network（PL-Net）]]。
 - 条件是随机初始笔画，不是成品线稿或课堂中间稿。续画、中途改不能照搬这套输入。详见 [[DoodleFormer-译文#1 引言]]。
 - 扩展有文本条件、简笔补全、气泡图转户型。户型只用 PL-Net 出房间框。这些仍是布局或终稿，不是素描过程。详见 [[DoodleFormer-译文#4.4 相关应用]]。
 - 成图偏鸟和生物的创意涂鸦，不是调子素描。不要混成「又做了一张更好看的成品」。详见 [[DoodleFormer-译文#摘要]]。

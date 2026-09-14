@@ -56,7 +56,7 @@ status: 要点
 - Fig. 5：Omniglot 无条件与条件重建网格，无条件弱于 MNIST。图在 [[SPIRAL-译文#4.4 Omniglot]]。
 - Fig. 6：域外线稿解析——多分辨率重建与彩色笔画轨迹（按命令顺序着色）。图在 [[SPIRAL-译文#4.4 Omniglot]]。
 - Fig. 7：CelebA 20 步刷笔重建对，块面但大块颜色与脸位对齐。图在 [[SPIRAL-译文#4.5 CelebA]]。
-- Fig. 8：四数据集上 $\ell_2$ 随训练帧变化，判别器奖励低于纯 $\ell_2$ 奖励。图在 [[SPIRAL-译文#4.6 MuJoCo Scenes]]。
+- Fig. 8：四数据集上 $\ell_2$ 随训练帧变化。用判别器当奖励时，终局 $\ell_2$ 低于直接最小化 $\ell_2$。图在 [[SPIRAL-译文#4.6 MuJoCo Scenes]]。
 - Fig. 9：MuJoCo holdout 上 SPIRAL 一次前向近零 $\ell_2$，Blocked MCMC 迭代仍高。图在 [[SPIRAL-译文#4.6 MuJoCo Scenes]]。
 - Fig. 10：MuJoCo 左重建右输入的成对 3D 场景。图在 [[SPIRAL-译文#4.6 MuJoCo Scenes]]。
 - Fig. 11：圆盘玩具数据上 $\ell_2$ 曲面平坦 vs 学习 $D$ 的梯度形状。图在 [[SPIRAL-译文#A 条件生成下的最优 $D$（PDF 第 11 页）]]。

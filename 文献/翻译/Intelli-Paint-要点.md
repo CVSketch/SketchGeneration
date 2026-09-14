@@ -5,7 +5,7 @@ source: "[[Intelli-Paint]]"
 translation: "[[Intelli-Paint-译文]]"
 tags:
   - 要点
-  - 论文
+  - 参考文献
 status: 要点
 ---
 
@@ -64,7 +64,7 @@ status: 要点
 
 - Fig. 1：左列 Paint Transformer / 人 / 本文的成画序列；右列渐进分层（鸟）、由粗到细红框注意力、笔触正则后约 250 对 4800 笔。图在 [[Intelli-Paint-译文#3.1.2 渐进分层（先背景，后前景）]]。
 - Fig. 2：Sequential Planner（背景层 + 检测框选物体 + 局部窗口）与 Stroke Regularization 两阶段总览。图在 [[Intelli-Paint-译文#3 方法]]。
-- Fig. 3：约 300 笔预算下四场景成图；本文细结构更完整。图在 [[Intelli-Paint-译文#5.1 作画效率（成图质量 vs 笔触预算）]]。
+- Fig. 3：约 300 笔预算下四场景成图（车、湖边小屋、双鹅、山村）；本文细结构更完整。图在 [[Intelli-Paint-译文#5.1 作画效率（成图质量 vs 笔触预算）]]。
 - Fig. 4：重建损失相当前提下，各方法在不同总笔数下的 10% / 40% / 60% / 100% 过程帧（车 + 鸟）；本文先背景后前景、由粗到细，不是网格并行。整页宽大图，勿裁成单行细条。图在 [[Intelli-Paint-译文#5.2 与人类作画风格的相似度（过程能否跟着读）]]。
 - 表 1：约 300 笔/幅时 $L_{\mathrm{pixel}}$、$L_{\mathrm{pcpt}}$ 数值对比。图在 [[Intelli-Paint-译文#5.1 作画效率（成图质量 vs 笔触预算）]]。
 - 表 2：MTurk 偏好本文过程的比例。图在 [[Intelli-Paint-译文#5.2 与人类作画风格的相似度（过程能否跟着读）]]。

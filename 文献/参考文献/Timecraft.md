@@ -1,7 +1,7 @@
 ---
 title: "Painting Many Pasts: Synthesizing Time Lapse Videos of Paintings"
 short: Timecraft
-authors: Amy Zhao, Guha Balakrishnan, Kathleen M. Lewis, Frédo Durand, John Guttag, Adrian V. Dalca
+authors: Amy Zhao, Guha Balakrishnan, Kathleen M. Lewis, Frédo Durand, John V. Guttag, Adrian V. Dalca
 year: 2020
 venue: CVPR 2020
 ccf: A
@@ -23,3 +23,5 @@ status: 已译
 ## 一句话
 
 从一张画完的画，反推它可能怎么一步步画出来，做成延时视频。
+
+训练先把帧缩到 $126 \times 168$，再裁 $50 \times 50$ 小块。铺的是数字画和水彩，不是铅笔排线。[[Inverse-Painting]] 批评的就是这块：只看小块，看不见整幅在画什么。

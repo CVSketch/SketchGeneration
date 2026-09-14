@@ -35,9 +35,13 @@ status: 全文
 
 ![[图/DoodleFormer/fig1.png]]
 
-**创意简笔生成**（Ge et al., ICLR 2021）不同：要画更想象、更少见 everyday 概念的组合（正文 Fig. 1(a)），常以外部给的**随机初始笔画**为条件。自动创意简笔可辅助创作，例如帮用户解读起稿。但比「模仿真实场景」更难。
+Fig. 1：（a）随机初始笔画出创意鸟；（b）文本条件，如 “walking forward”；（c）不完整简笔补全。三列都是终稿，不是课堂阶段。
+
+**创意简笔生成**（Ge et al., ICLR 2021）不同：要画更想象、更少见的日常概念组合（正文 Fig. 1(a)），常以外部给的**随机初始笔画**为条件。自动创意简笔可辅助创作，例如帮用户解读起稿。但比「模仿真实场景」更难。
 
 ![[图/DoodleFormer/fig2.png]]
+
+Fig. 2：同一初始笔画下，上排 DoodlerGAN，下排 DoodleFormer。（a）Creative Birds，（b）Creative Creatures。DoodlerGAN 易多头、断连。
 
 Ge 等提出 **DoodlerGAN**：按部件用 GAN 逐个生成，再与随机输入顺序拼成整图。它没有显式保证部件相对位置，易出现**拓扑错误**（多头、断连等，Fig. 2）和**多样性不足**。
 
@@ -49,8 +53,6 @@ Ge 等提出 **DoodlerGAN**：按部件用 GAN 逐个生成，再与随机输入
 - **GAT 编码器**：在动态自注意力里融入**静态邻接图**，编码部件间局部结构关系。
 - **概率粗解码器**：用 GMM 采样各部件框位置，提升输出多样性（Fig. 2）。
 - 在 Creative Birds / Creative Creatures 上全面评估；用户 study 中相对 DoodlerGAN，约 **86%** 认为更像人画、**85%** 初始笔画融合更好、**82%** 更有创意；[[FID]] 在 Creatures / Birds 上分别约 **+25**、**+23** 的绝对增益。
-
-![[图/DoodleFormer/fig8.png]]
 
 - 扩展：**文本条件**、**不完整简笔补全**、**气泡图→户型**（Fig. 1(b)(c)、Fig. 8）。
 
@@ -72,10 +74,12 @@ Ge 等提出 **DoodlerGAN**：按部件用 GAN 逐个生成，再与随机输入
 
 ![[图/DoodleFormer/fig3.png]]
 
+Fig. 3：左是 PL-Net，先出部件框；右是 PS-Net，再画 $128 \times 128$ 栅格终稿。两阶段是空间上先框后填，不是构图、排线。
+
 两阶段 **DoodleFormer**（Fig. 3）对应上述两点：
 
 1. **Part Locator（PL-Net）**  
-   条件：外部随机初始笔画点列 $\mathcal{C}$（矢量形式）。输出：各身体部件的**包围盒**，即简笔的**粗结构**（ holistic part composition）。含 GAT 编码器 $E_b$、$E_c$ 与**概率粗解码器**（GMM 预测框；位置头 $\mathcal{H}_{xy}$、尺寸头 $\mathcal{H}_{wh}$）。作者称这是创意简笔生成里**首次**用 GAT 块编码器。
+   条件：外部随机初始笔画点列 $\mathcal{C}$（矢量形式）。输出：各身体部件的**包围盒**，即简笔的**粗结构**（整体部件构图）。含 GAT 编码器 $E_b$、$E_c$ 与**概率粗解码器**（GMM 预测框；位置头 $\mathcal{H}_{xy}$、尺寸头 $\mathcal{H}_{wh}$）。作者称这是创意简笔生成里**首次**用 GAT 块编码器。
 
 2. **Part Sketcher（PS-Net）**  
    输入：PL-Net 预测的框 + $\mathcal{C}$。输出：栅格化高质量简笔 $\bar{\bm{I}}_{im}$。同样用 GAT 编码器 $\bar{E}_b$、$\bar{E}_c$，以及卷积编解码 $\mathcal{R}_E$、$\mathcal{R}_D$ 与 **mask regressor**。
@@ -100,6 +104,8 @@ PL-Net 以 $\mathcal{C}$ 为条件，返回描述目标简笔**整体部件布�
 #### 图感知 Transformer（GAT）块
 
 ![[图/DoodleFormer/fig5.png]]
+
+Fig. 5：（a）常规 Transformer 块；（b）标准自注意力；（c）本文 GAT，把邻接图权融进注意力。裁图左侧卷进了邻栏正文。
 
 结构见 Fig. 5(c)：在标准多头自注意力（MHSA）前/中融入**邻接图**上的谱图卷积（Kipf & Welling, ICLR 2017）。
 
@@ -159,7 +165,7 @@ $\mathcal{R}_D$ 以 ResNet 为骨干。为增多样性，在送入解码器前�
 
 $$\mathcal{L}_{PS} = \mathcal{L}_{im} + \lambda_p \mathcal{L}_{part} + \lambda_a \mathcal{L}_{app}, \quad \lambda_p=\lambda_a=10. \tag{9}$$
 
-GAT 提升真实感；PL-Net 的 GMM 提升多样性。合起来即「**先框身体各 part，再在框内Sketcher 填线**」。
+GAT 提升真实感；PL-Net 的 GMM 提升多样性。合起来即「**先框身体各部件，再在框里填线**」。
 
 ## 4 实验
 
@@ -179,6 +185,8 @@ GAT 提升真实感；PL-Net 的 GMM 提升多样性。合起来即「**先框�
 
 ![[图/DoodleFormer/table1.png]]
 
+Tab. 1：Creative Birds / Creative Creatures 上 FID、GD、CS、SDS。裁图只收到 Birds 的 FID / GD 两列，全文数字见下表。
+
 Tab. 1 对比 SketchRNN、StyleGAN2、DoodlerGAN 与 DoodleFormer。[[FID]] 与 **GD（generation diversity）** 用 QuickDraw3.8M 上训练的 Inception 特征（与 DoodlerGAN 一致）。
 
 | 方法 | Birds FID↓ | Birds GD↑ | Birds CS↑ | Creatures FID↓ | Creatures GD↑ | Creatures CS↑ | Creatures SDS↑ |
@@ -193,7 +201,7 @@ DoodleFormer [[FID]] 更低、GD 更高。**CS（characteristic score）** 衡�
 
 ![[图/DoodleFormer/fig6.png]]
 
-Fig. 6(a) 为随机初始笔画条件下的视觉对比。
+Fig. 6：（a）随机初始笔画生成，对 DoodlerGAN（DG）；（b）简笔补全；（c）文本→简笔，对 AttnGAN（AG）、StackGAN（SG）。整张是多格矩阵，不拆格。
 
 ### 4.2 用户 study
 
@@ -241,7 +249,11 @@ Tab. 3（GAT 设计，Birds）：
 
 ![[图/DoodleFormer/table4.png]]
 
-Tab. 4 摘要（FID 越低、Compatibility 越低越好）：相对 Ashual、Johnson、House-GAN，本文在各组 [[FID]] 与 Compatibility 多数更优；Fig. 8 为定性对比。
+Tab. 4 摘要（FID 越低、Compatibility 越低越好）：相对 Ashual、Johnson、House-GAN，本文在各组 [[FID]] 与 Compatibility 多数更优。
+
+![[图/DoodleFormer/fig8.png]]
+
+Fig. 8：气泡图 → 户型。列是输入气泡图、真值、House-GAN、本文。这是房间框布局，不是素描过程。
 
 ## 5 结论
 
@@ -251,7 +263,7 @@ DoodleFormer 用**由粗到细**两阶段做创意简笔生成：GAT 编码器�
 
 ### 1 由粗到细的生成过程（Supp. Fig. 1）
 
-补充 Fig. 1 并排展示 PL-Net 的**粗框**与 PS-Net 的**最终简笔**（眼、喙、身体、头、腿、嘴、尾、翅等部件）。强调：**先 holistic 粗结构，再填 fine-details**，与正文 Fig. 3–4 一致。
+补充 Fig. 1 并排展示 PL-Net 的**粗框**与 PS-Net 的**最终简笔**（眼、喙、身体、头、腿、嘴、尾、翅等部件）。强调：**先定整体粗结构，再填细部**，与正文 Fig. 3–4 一致。不要读成课堂示范的先后阶段。
 
 ### 2 评价指标补充说明
 

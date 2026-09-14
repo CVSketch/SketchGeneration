@@ -162,7 +162,11 @@ AdamW 优化式 (3)；学习率每 epoch 乘 $0.9997$，初值 $\gamma_0=6\times
 
 ![[图/ChiroDiff/fig5.png]]
 
+Fig. 5：（A–C）重建 Chamfer Distance 随采样率因子变化；（D）相对训练 / 采样耗时；（E）无条件 FID。采样率因子和扩散训练时间都不是课堂阶段。图在 PDF 第 6 页。
+
 ![[图/ChiroDiff/fig6.png]]
+
+Fig. 6：条件重建。每组左列采样率 1、右列采样率 2。行依次是条件、SketchRNN、CoSE、SketchODE、ChiroDiff。五组是数字 5、数字 9、猫、蟹、瑜伽小人。图在 PDF 第 7 页。
 
 自回归的 SketchRNN 无法直接提采样率，只能为不同重采样数据各训一版，已处于劣势。指标：条件重建的 **Chamfer Distance（CD）**（忽略 pen-up 位）。Fig. 5(A–C) 为 CD 随**采样率因子**（相对原始点数的倍数）变化：ChiroDiff 在高采样率下更稳；SketchRNN 在长序列上明显变差。CoSE、SketchODE 曲线较平；KanjiVG 上 SketchODE 因训练 / 收敛问题未列入 Fig. 5。Fig. 6 为采样率 1 与 2 的重建定性对比。
 
@@ -232,6 +236,8 @@ $$V_{t-1}^{0}=V_{t-1}^{0}-\Phi_\omega(V_{t-1}^{0})+\Phi_\omega(V_{t-1}^{\mathrm{
 ## 6 结论、局限与未来工作
 
 ![[图/ChiroDiff/fig11.png]]
+
+Fig. 11：上排同一 $\alpha$ 下，矢量折线比栅格数字更怕噪；下排反向方差过大时的去噪失败样。图在 PDF 第 9 页。
 
 ChiroDiff 是基于 DDPM 的**非自回归**手绘生成模型，整体概念建模更好，支持多种自回归难以实现的下游任务。局限包括：（1）矢量表示比栅格更怕噪（Fig. 11 上：同一 $\alpha$ 下矢量扰动更伤结构）；（2）反向方差 $\sigma_t^2$ 为经验设定，噪声有时压过预测均值（Fig. 11 下）；（3）速度积分使绝对位置噪声随序列长度累积。未来可让加噪过程随生成长度或数据基数自适应。
 

@@ -5,7 +5,7 @@ source: "[[CLIPascene]]"
 translation: "[[CLIPascene-译文]]"
 tags:
   - 要点
-  - 论文
+  - 参考文献
 status: 要点
 ---
 
@@ -53,16 +53,16 @@ status: 要点
 ## 关键图
 
 - Fig. 1：五组场景简笔 + 右侧 4×4 忠实度×简洁度矩阵（矢量）。图在 [[CLIPascene-译文#1 引言]]。
-- Fig. 2：灯塔 / 猫与花 / 街景三档复杂度。图在 [[CLIPascene-译文#1 引言]]。
+- Fig. 2：灯塔 / 猫与花瓶 / 街景三档复杂度。图在 [[CLIPascene-译文#1 引言]]。
 - Fig. 3：画家简笔风格差异与同图内局部抽象差。图在 [[CLIPascene-译文#1 引言]]。
 - Fig. 4：同一笔数下 precise→loose 的忠实度轴。图在 [[CLIPascene-译文#1 引言]]。
 - Fig. 5：detailed→sparse 的简洁度轴。图在 [[CLIPascene-译文#1 引言]]。
 - Fig. 6：Illustrator 改笔刷。图在 [[CLIPascene-译文#1 引言]]。
 - Fig. 7：MLP<sub>loc</sub> / MLP<sub>simp</sub> 训练框图（灰区 + 橙区）。图在 [[CLIPascene-译文#3.1 训练框架]]。
 - Fig. 8：$L_{\mathrm{sparse}}$ 与 $L_{\mathrm{CLIP}}$ 权衡。图在 [[CLIPascene-译文#3.3 简洁度轴]]。
-- Fig. 9：平滑 vs 跳变简化与散点轨迹。图在 [[CLIPascene-译文#3.3 简洁度轴]]。
+- Fig. 9：平滑 vs 跳变简化与散点轨迹；每个点是一张简笔。图在 [[CLIPascene-译文#3.3 简洁度轴]]。
 - Fig. 10：按 $r_k^j$ 迭代简化流程。图在 [[CLIPascene-译文#3.3 简洁度轴]]。
-- Fig. 11：前景/背景拆分、不拆分 artifact、分块编辑。图在 [[CLIPascene-译文#3.4 场景分解]]。
+- Fig. 11：前景/背景拆分、不拆分 artifact、下排改笔刷。图在 [[CLIPascene-译文#3.4 场景分解]]。
 - Fig. 12：长颈鹿忠实度行 + 佛像简洁度行。图在 [[CLIPascene-译文#4.1 定性]]。
 - Fig. 13：与 CLIPasso 四场景对比（背景缺失）。图在 [[CLIPascene-译文#4.2 与已有方法对比]]。
 - Fig. 14：与 XDoG / UPDG / Photo-Sketching / Chan 及本文三档并列。图在 [[CLIPascene-译文#4.2 与已有方法对比]]。
