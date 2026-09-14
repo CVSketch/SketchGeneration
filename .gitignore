@@ -1,0 +1,21 @@
+.DS_Store
+**/.DS_Store
+
+# Obsidian 本机窗口状态
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# 裁图时的整页渲染，只留最终 png
+附件/图/**/_pages/
+附件/图/**/_debug/
+
+# 第三方官方仓库请自行克隆，见 README
+复现/inverse_painting/
+复现/primitive-operation-painter/
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/

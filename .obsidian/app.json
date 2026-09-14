@@ -1,0 +1,13 @@
+{
+  "legacyEditor": false,
+  "livePreview": true,
+  "showLineNumber": false,
+  "strictLineBreaks": false,
+  "attachmentFolderPath": "附件",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "文献",
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "showUnsupportedFiles": true
+}
